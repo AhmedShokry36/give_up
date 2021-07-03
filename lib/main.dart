@@ -12,7 +12,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +55,7 @@ class _splashState extends State<splash> {
       backgroundColor: Colors.red,
       styleTextUnderTheLoader: new TextStyle(),
       photoSize: 200.0,
-      onClick: () => print("give up drugs"),
+      onClick: () => print("give up "),
       loaderColor: Colors.white,
     );
   }

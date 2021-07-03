@@ -11,7 +11,8 @@ class viewVideos extends StatefulWidget {
 }
 
 class _viewVideosState extends State<viewVideos> {
-  var videoref = FirebaseFirestore.instance.collection('videoLink').get();
+  CollectionReference videoref =
+      FirebaseFirestore.instance.collection('videoLink');
 
   CollectionReference userref = FirebaseFirestore.instance.collection('Users');
 
@@ -29,7 +30,7 @@ class _viewVideosState extends State<viewVideos> {
       ),
       body: Container(
         child: FutureBuilder(
-            future: videoref,
+            future: videoref.get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.separated(
@@ -44,9 +45,9 @@ class _viewVideosState extends State<viewVideos> {
                   itemCount: snapshot.data.docs.length,
                   itemBuilder: (context, i) {
                     return Dismissible(
-                      /* onDismissed: (change) async {
+                      onDismissed: (change) async {
                         await videoref.doc(snapshot.data.docs[i].id).delete();
-                      }, */
+                      },
                       key: UniqueKey(),
                       child: ListVideos(
                         Videos: snapshot.data.docs[i],
@@ -94,7 +95,6 @@ class ListVideos extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Row(
             children: [
-              
               SizedBox(
                 width: 10,
               ),
@@ -116,7 +116,6 @@ class ListVideos extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                     
                       Center(
                         child: Container(
                           width: 300,
