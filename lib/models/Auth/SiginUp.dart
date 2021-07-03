@@ -56,11 +56,6 @@ class _SiginUpState extends State<SiginUp> {
           SizedBox(
             height: 40,
           ),
-          /*  Center(
-              child: Image.asset(
-            "images/icon.png",
-            height: MediaQuery.of(context).size.height / 4,
-          )), */
           Container(
             padding: EdgeInsets.all(20),
             child: Form(

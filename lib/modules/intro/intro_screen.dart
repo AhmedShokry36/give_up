@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:give_up_drugs/models/Auth/login.dart';
 import 'package:give_up_drugs/modules/home/home_screen.dart';
 import 'package:give_up_drugs/modules/intro/DropDown.dart';
-import 'package:awesome_dropdown/awesome_dropdown.dart';
 import 'package:give_up_drugs/shared/components/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

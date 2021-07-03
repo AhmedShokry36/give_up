@@ -12,7 +12,11 @@ List typesOFAddiction = [
   'الاباحية',
 ];
 
-List stagesOFAddiction = ["قبل الادمان", "الادمان", 'بعد الادمان'];
+List stagesOFAddiction = [
+  "قبل الادمان",
+  "الادمان",
+  'بعد الادمان',
+];
 
 class _DropDownState extends State<DropDown> {
   bool isStrechedDropDown = false;

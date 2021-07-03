@@ -34,7 +34,6 @@ class _viewHospitalsState extends State<viewHospitals> {
       body: Container(
         child: FutureBuilder(
             future: helpref
-                //   .where("id", isEqualTo: FirebaseAuth.instance.currentUser.uid)
                 .get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {

@@ -1,18 +1,12 @@
 import 'dart:io';
-import 'dart:math';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:give_up_drugs/models/helper/Alert.dart';
 import 'package:give_up_drugs/modules/home/home_Screen_admin.dart';
 import 'package:give_up_drugs/modules/intro/DropDown.dart';
-import 'package:give_up_drugs/modules/videos/View.dart';
 import 'package:give_up_drugs/shared/components/constants.dart';
-import 'package:path/path.dart';
 import 'package:flutter/material.dart';
-import 'package:linkify/linkify.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class AddVideo extends StatefulWidget {
   @override
@@ -23,18 +17,8 @@ class _AddVideoState extends State<AddVideo> {
   CollectionReference videoref =
       FirebaseFirestore.instance.collection('videoLink');
   CollectionReference userref = FirebaseFirestore.instance.collection('Users');
-  TextEditingController _addItemController = TextEditingController();
-  DocumentReference linkRef;
-  YoutubePlayerController _controller;
-  TextEditingController _idController;
-  TextEditingController _seekToController;
   List<String> videoID = [];
   bool showItem = false;
-  bool _isPlayerReady = false;
-
-  final utube =
-      RegExp(r"^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$");
-  // Reference ref;
   File file;
   var typeVideo = valueChose1;
   var levelVideo = valueChose2;
@@ -59,7 +43,6 @@ class _AddVideoState extends State<AddVideo> {
             "linkVideo": linkVideo,
             "typeVideo": typeVideo,
             "levelVideo": levelVideo,
-            // "phoneHospital": phoneHospital,
             "id": FirebaseAuth.instance.currentUser.uid
           })
           .then((value) => {
@@ -70,25 +53,6 @@ class _AddVideoState extends State<AddVideo> {
             print("$e");
           });
     }
-  }
-
-  _addItemFuntion() async {
-    await linkRef.set({
-      _addItemController.text.toString(): _addItemController.text.toString()
-    }, SetOptions(merge: true));
-    Flushbar(
-      title: 'Added',
-      message: 'updating...',
-      duration: Duration(seconds: 3),
-      icon: Icon(Icons.info_outline),
-    );
-    // ..show(context);
-    setState(() {
-      videoID.add(_addItemController.text);
-    });
-    print('added');
-    FocusScope.of(this.context).unfocus();
-    _addItemController.clear();
   }
 
   @override
@@ -215,7 +179,6 @@ class _AddVideoState extends State<AddVideo> {
                   height: MediaQuery.of(context).size.height / 18,
                   width: MediaQuery.of(context).size.width / 2,
                   child: ElevatedButton(
-                    //style: ButtonStyle(backgroundColor: Color(Colors.accents)),
                     onPressed: () {
                       AddVideos(context);
                     },
@@ -236,6 +199,4 @@ class _AddVideoState extends State<AddVideo> {
       ),
     );
   }
-
-  Widget get _space => const SizedBox(height: 10);
 }

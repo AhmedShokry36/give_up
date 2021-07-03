@@ -88,20 +88,13 @@ class ListVideos extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        // height: MediaQuery.of(context).size.height / 4,
         decoration: BoxDecoration(
             color: Colors.grey[200], borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
             children: [
-              /*  CircleAvatar(
-                radius: 40.0,
-                child: Icon(
-                  Icons.video_collection_sharp,
-                  size: 45.0,
-                ),
-              ), */
+              
               SizedBox(
                 width: 10,
               ),
@@ -123,15 +116,7 @@ class ListVideos extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      /*  GestureDetector(
-                        onTap: () => launch("https://${Videos['linkVideo']}"),
-                        child: Text(
-                          "${Videos['linkVideo']}",
-                          style: TextStyle(
-                            fontSize: 15.0,
-                          ),
-                        ),
-                      ), */
+                     
                       Center(
                         child: Container(
                           width: 300,

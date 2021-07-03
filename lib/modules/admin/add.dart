@@ -1,13 +1,10 @@
 import 'dart:io';
-import 'dart:math';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:give_up_drugs/models/helper/Alert.dart';
 import 'package:give_up_drugs/modules/home/home_Screen_admin.dart';
-import 'package:give_up_drugs/modules/home/home_screen.dart';
 import 'package:give_up_drugs/shared/components/constants.dart';
-import 'package:path/path.dart';
 import 'package:flutter/material.dart';
 
 class AddHelp extends StatefulWidget {
@@ -39,8 +36,6 @@ class _AddHelpState extends State<AddHelp> {
     if (formdata.validate()) {
       showLoading(context);
       formdata.save();
-      /*   await ref.putFile(file);
-      imgUrl = await ref.getDownloadURL(); */
       await helpref
           .add({
             "nameHospital": nameHospital,
@@ -204,7 +199,6 @@ class _AddHelpState extends State<AddHelp> {
                   height: MediaQuery.of(context).size.height / 18,
                   width: MediaQuery.of(context).size.width / 2,
                   child: ElevatedButton(
-                    //style: ButtonStyle(backgroundColor: Color(Colors.accents)),
                     onPressed: () {
                       AddHelps(context);
                     },

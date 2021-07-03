@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:give_up_drugs/models/Auth/SiginUp.dart';
 import 'package:give_up_drugs/modules/home/home_Screen_admin.dart';
-import 'package:give_up_drugs/modules/home/home_screen.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);

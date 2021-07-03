@@ -1,11 +1,7 @@
-import 'package:better_player/better_player.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:give_up_drugs/modules/videos/addVideo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class VideosScreen extends StatefulWidget {
   @override
@@ -18,7 +14,7 @@ class _VideosScreenState extends State<VideosScreen> {
     return preferences.getString(key);
   }
 
-  getlikes() async {
+  getlinks() async {
     String levelVideo = await getStringFromSharedPreferences('levelVideo');
     String typeVideo = await getStringFromSharedPreferences('typeVideo');
     var videoref = FirebaseFirestore.instance
@@ -36,7 +32,7 @@ class _VideosScreenState extends State<VideosScreen> {
     return Scaffold(
       body: Container(
         child: FutureBuilder(
-            future: getlikes(),
+            future: getlinks(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.separated(
@@ -89,20 +85,12 @@ class ListVideos extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        // height: MediaQuery.of(context).size.height / 4,
         decoration: BoxDecoration(
             color: Colors.grey[200], borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
             children: [
-              /*  CircleAvatar(
-                radius: 40.0,
-                child: Icon(
-                  Icons.video_collection_sharp,
-                  size: 45.0,
-                ),
-              ), */
               SizedBox(
                 width: 10,
               ),
@@ -124,15 +112,6 @@ class ListVideos extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      /*  GestureDetector(
-                        onTap: () => launch("https://${Videos['linkVideo']}"),
-                        child: Text(
-                          "${Videos['linkVideo']}",
-                          style: TextStyle(
-                            fontSize: 15.0,
-                          ),
-                        ),
-                      ), */
                       Center(
                         child: Container(
                           width: 300,

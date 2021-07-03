@@ -21,9 +21,7 @@ class _HospitalsState extends State<Hospitals> {
     return Scaffold(
       body: Container(
         child: FutureBuilder(
-            future: helpref
-                //   .where("id", isEqualTo: FirebaseAuth.instance.currentUser.uid)
-                .get(),
+            future: helpref.get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.separated(

@@ -1,11 +1,5 @@
 import 'dart:ui';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
-import 'package:give_up_drugs/models/Auth/login.dart';
-import 'package:give_up_drugs/modules/admin/add.dart';
 import 'package:give_up_drugs/modules/hospital/hospital.dart';
 import 'package:give_up_drugs/modules/videos/videos.dart';
 
@@ -17,9 +11,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // main axis alignment : start
-    // cross axis alignment : center
-
     return DefaultTabController(
       length: 2,
       child: Scaffold(
